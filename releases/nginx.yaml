@@ -1,0 +1,24 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: nginx-app
+  annotations:
+    fluxcd.io/ignore: "false"
+spec:
+  releaseName: nginx
+  chart:
+    git: https://github.com/husnialhamdani/microservices-demo.git
+    ref: master
+    path: deploy/kubernetes/hudani-chart
+  values:
+    java:
+        options: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+    zipkin: 
+        enabled:  false
+        url: zipkin.zipkin.svc.cluster.local
+    frontend:
+        replicas: 2
+    loadtest:
+        replicas: 2
+        enabled: false
