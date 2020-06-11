@@ -4,11 +4,11 @@ metadata:
   name: sock-shop
   namespace: sockshop
   annotations:
-    fluxcd.io/ignore: "false"
+    fluxcd.io/ignore: "true"
 spec:
   releaseName: sock-shop
   chart:
-    git: https://github.com/husnialhamdani/microservices-demo
+    git: https://github.com/husnialhamdani/microservices-demo.git
     ref: master
     path: deploy/kubernetes/helm-chart
   values:
