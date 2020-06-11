@@ -4,7 +4,7 @@ metadata:
   name: sock-shop
   namespace: sockshop
   annotations:
-    fluxcd.io/ignore: "false"
+    fluxcd.io/ignore: "true"
 spec:
   releaseName: sock-shop
   chart:
